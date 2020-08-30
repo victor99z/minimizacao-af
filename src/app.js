@@ -62,7 +62,7 @@ function minimiza(transicoes, estados, estado_final){
 
         Percorre a matriz, atribui undefined para os estados repetidos e verifica
         os estados finais para serem marcados.
-        'xx' são os estados marcados.
+        'x' são os estados marcados. final e não final
 
     */
     for(i = 0; i < tam_matriz; i++){
@@ -70,20 +70,17 @@ function minimiza(transicoes, estados, estado_final){
             if(matriz_min[i][j] !== undefined){
                 estado_final.map( e => {
                     if(e == i){
-                            matriz_min[i][j] = "x"
+                            matriz_min[i][j] = "x" + matriz_min[i][j]
                     }                   
                 })
                 estado_final.map( e => {
                     if(e == j){
-                            console.log(`Par: <${i},${j}> marcado`)
                             matriz_min[i][j] = "x" + matriz_min[i][j]
                     }                   
                 })
             }
         }
     }
-
-
 
     console.table(matriz_min)
 
